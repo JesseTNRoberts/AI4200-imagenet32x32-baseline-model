@@ -1,5 +1,7 @@
 # AI 4200 Project 1: Residual MLP baseline
 
+The instructor baseline. Fork this repo as the starting point for your submission.
+
 ## The assignment
 
 Your job is to build, train, and analyze a residual MLP on three image classification benchmarks: **MNIST**, **CIFAR-10**, and **ImageNet 32×32**. This repo is a deliberately plain starting point. It is meant to be beaten.
@@ -48,9 +50,9 @@ probs = predict(model, X_test)                                 # (N, num_classes
 
 The course notebook downloads the data, installs your package, calls these two functions for each task, and reports test accuracy. Do your development in your own environment. The notebook is only the test harness.
 
-**Leaderboard.** Test accuracies will be compared "leaderboard" style. The leaderboard does not count toward your grade. The single top-performing model earns extra credit: **3 points** if its author is in the 4000-level section, or **2 points** if in the 5000-level section.
+**Leaderboard.** Test accuracies go on a class leaderboard. The leaderboard does not count toward your grade. The single top-performing model earns extra credit: **3 points** if its author is in the 4000-level section, or **2 points** if in the 5000-level section.
 
-## Install this baseline model
+## Install
 
 ```bash
 pip install git+https://github.com/JesseTNRoberts/AI4200-imagenet32x32-baseline-model.git
@@ -58,13 +60,14 @@ pip install git+https://github.com/JesseTNRoberts/AI4200-imagenet32x32-baseline-
 
 ## Files
 
-- `src/mlp_baseline/model.py`: the residual MLP. One class for all three tasks; only the input size and number of classes change.
-- `src/mlp_baseline/train.py`: the required `train` and `predict` functions.
+- `src/residual_mlp_baseline/model.py`: the residual MLP. One class for all three tasks; only the input size and number of classes change.
+- `src/residual_mlp_baseline/train.py`: the required `train` and `predict` functions.
+- `project1_harness.ipynb`: the test harness. It downloads and caches the datasets, installs a package from GitHub, and reports test accuracy.
 
 ## Use
 
 ```python
-from mlp_baseline import train, predict
+from residual_mlp_baseline import train, predict
 
 model = train("cifar10", X_train, y_train, seed=0, device="cuda")
 probs = predict(model, X_test)
